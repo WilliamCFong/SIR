@@ -15,11 +15,11 @@ def dSIRdt(SIR, t, population, infection_rate, recovery_rate):
 
 @click.command()
 @click.argument('population', type=int)
-@click.option('--beta', '-b', type=float, default=0.07)
-@click.option('--gamma', '-g', type=float, default=0.02)
-@click.option('--infected_0', '-i', type=int, default=1)
-@click.option('--recovered_0', '-r', type=int, default=0)
-@click.option('--timespan', '-t', type=int, default=31)
+@click.option('--beta', '-b', type=float, default=0.07, help='Infection rate /day')
+@click.option('--gamma', '-g', type=float, default=0.02, help='Recovery rate /day')
+@click.option('--infected_0', '-i', type=int, default=1, help='Number of infected at day 0')
+@click.option('--recovered_0', '-r', type=int, default=0, help='Number of \'recovered\' at day 0')
+@click.option('--timespan', '-t', type=int, default=31, help='Number of days to sweep')
 def sir(population, beta, gamma, infected_0, recovered_0, timespan):
 
     susceptible_0 = population - infected_0 - recovered_0
